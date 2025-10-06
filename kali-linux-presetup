@@ -1,0 +1,4 @@
+CMD: sudo apt update = to update to the freshes packet list
+sudo apt upgrade (-y) this allows upgrades within the current Linux version without prompts
+How to create a low level user: sudo su - & then usermod -aG (name of user) & chsh -s /bin/bash (name of user) to add new user with sudo privileges & then grep 'sudo' /etc/group
+Multiplexer is a quality of life feature, not currently installed.
