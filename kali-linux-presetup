@@ -1,4 +1,4 @@
-This link: 'https://www.virtualbox.org/' will take you to the installation page.
+This link: 'https://www.virtualbox.org/' will take you to the installation page. Specifically, 'https://www.virtualbox.org/wiki/Downloads' to go directly to the downloads options page. 
 
 These CMDs are useful when first launching your VM to ensure that it's fully updated:
 CMD: sudo apt update = to update to the freshes packet list
