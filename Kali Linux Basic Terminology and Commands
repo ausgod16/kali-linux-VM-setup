@@ -1,0 +1,79 @@
+Basic Terminology and key terms in Linux
+
+Binaries: Files that are executable programs - they can run on their own. For example, in Windows think of trhem like ".exe" files
+- Binaries are usually stored in folders like /usr/bin or /usr/sbin
+
+Directories = A folder 
+- Every user has a home directory folder. For example: "/home/Austin" any files you create and download will usually end up here by default.
+
+root = the super user in Linux or AKA the admin account
+- root access is needed to run certain tools or gain full control of the system
+
+Scripts = A list of commands saved in a file. When ran, the system reads the file and exsecutes the commands one by one. 
+- Can be written in differenty languages such as - Bash, Python, Perl, or Ruby
+
+Shell = The command center, the most common one is called "bash" which stands for Bourne Again Shell.
+
+Terminal = The window you use to talk to the shell. It's a command line interface (CLI)
+------------------------------------------------------------------------------------------
+Linux File System:
+- Linux there are no physical drives at the base, instead linux uses a logical filesystem.
+- Everything starts from a single top point called "/" This / is known as the root of the filesystem. For example: imagine it like an upside down tree. 
+
+Exploring the main directories inside the Linux File system:
+-/root: This is the home directory of the root user, the most powerful user in the system
+-/etc: This is where most system configuration files are stored. These files control how and when programs start up
+-/home: This is where all regular users have their personal folders. For example if your name is bob, your home directory is /home/bob.
+-/mnt: This is where temporary file systems are mounted. For example, if you attach another hard drive, linux can mount it here.
+-/media: This is where USB drives, CDs, or SD cards are usually mounted automatically.
+-/bin: This folder holds binaries, which are the core applications and commands Linux uses - similar to .exe files in Windows.
+-/lib: This is where libraries are stored = shared code that programs need to run. Similar to DLL files in Windows.
+
+Important tip: When doing normal tasks such as browsing, opening files, using tools dont log into the root user because if somebody hacks your system they gain full control, while doing day to day activities log in as a regular user. Only use root when you need full access.
+--------------------------------------------------------------------------------------------
+Basic Linux Commands:
+- Print working directory (cmd: pwd) = shows which directory you are in.
+- whoami = Checks your login / access level
+- Change directory (cmd: cd) = navigate folders in the terminal. To change directories. (cmd: cd ..) = reverse's the directory you are in or move up a level. Tip: you can cd .. / .. to move up more than one folder level.
+- ls = this command shows you the files and folders inside the directory you're currently in. Similar to the dir command in Windows OS. (cmd: ls -l) shows more detailed information or shows a longer list. (cmd: ls -la) shows hidden files starting with a dot.
+--------------------------------------------------------------------------------------------
+How to get help with commands and tools in Linux
+Try --help, -h, or -? at the end of the tool will show a help menu
+Man <command> is another option that will give more detailed info on the tool and how it works. When done type q to bring you back to the terminal.
+---------------------------------------------------------------------------------------------
+Simple commands on how to find files, tools, and commands in Linux:
+- cmd: locate + <keyword> , for example locate aircrack-ng. Note: it can sometimes show too many results which might be confusing. 
+- finding binaries with 'whereis'. This command focuses on the important parts like the binary file, source code, and manual page.
+- You can find binaries with the PATH variable with 'which' , this command only tells you the exact location of the binary file that your system will run
+- 'find' = full control over searches
+- wildcards = *= any number of characters, ? = Exactly one character, [:] = match one of the listed characters. They help you match patterns instead of exact names, which makes your searches eaiser and more flexible. These wildcards are very useful when you want to find or lsit files without typing the full name.
+- 'grep' = searches for a specific keyword in the output, like something you're trying to find in a long list. This cmd is basically a filter, it let's you search through the output of a command and only shows the lines that match your keyword
+- 'ps aux' shows processess and active tasks running, for example: ps aux | grep apache2 ( this cmd takes the output of the first command 'ps aux' and sends it into the second cmd 'grep apache2' then filters through all that and shows you lines that have the word apache2 in them".
+---------------------------------------------------------------------------------------------
+Modifying Files and Directories
+How to create files and directories, copy files, rename files, and delete files in directories. 
+
+- 'cat' which stands for concatenate - it means to combine pieces together, generally used for displaying the contents of a file, but it can also be used to create small files. It is used for reading or displaying the contents of a file, but can also be used to make new files, add more text to a file, or replace the whole content with something else. 
+- In the terminal type the word cat followed by the greater than symbol and then the name of the file you want to create. For example: 'cat > hackingskills.txt', once typed the terminal will seem like it's waiting, however your in interactive mode. This is where you type the content of the file. WHEN DONE TYPE 'CTRL + D' to save the file and exit. If you want to see what's in the file again, type 'cat hackingskills.txt'. If you want to add more text to the same file without deletiing whats already there, you'd type 'cat >> name of the file'
+- In simple terms = use cat with > symbol to create a new file, use cat with >> symbols to add to an existing file. Always click CTRL + D to save and exit the file.
+- For creating bigger files it's better to enter the code in a text editor (VIM, EMACS, LEAFPAD, JEDIT, KATE) and then save it as a file.
+
+How to create Files and Directories
+- File creation with 'touch', this cmd was orignally made so a user could update a files details, but if the file doesnt exist yet it will create a new file for you
+
+Creating a Directory
+- This is like a folder, use the cmd 'mkdir'(make directory). For example type 'mkdir newdirectroy' then 'cd newdirectory' it should change your current location to the new directory folder you created. 
+
+Copying a File
+- to copy a file use the 'cp' command, this cmd creates a duplicate of the file in a new location and leaves the original file where it is. 
+- For example: 1. 'touch oldfile' 2.'cp oldfile /root/newdirectory/newfile'  3. 'cd newdirectory' 4. 'ls' 
+
+How to rename a file in Linux
+- Linux doesn't have a command made only for renaming files like Windows does, but we can use the 'mv' command. This cmd is used to move files or directories,but also can be used to rename them.
+- For example: type the cmd 'mv newfile newfile2' This example used newfile and renamed it to newfile2. NOTE: This method works for directories also. 
+
+How to remove a file in Linux / Directory
+- Use the 'rm' cmd
+- To remove a directory it's very similar to removing a file, essentially the cmd is 'rmdir'
+
+
