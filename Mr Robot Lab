@@ -1,0 +1,26 @@
+1. How to download and install Mr. Robot (optional) This is a vulnerable machine to practice on.
+https://vulnhub.com/entry/mr-robot-1,151/
+Download (Mirror): https://download.vulnhub.com/mrrobot/mrRobot.ova
+NOTE: your AV might detect this as a virus, however it's due to it being a vulnerable machine. Please do your research if you are hesitant. 
+
+2. Modify your network settings in virtualbox
+First, go to your Kali Linux machine settings and go to network, attached to: Internal Network & Name: <name your network>
+
+3. Go to your mr.robot machine, click on settings and repeat the step above. 
+
+4. You've sucessfully isolated your machines. These machines cannot talk to anything else. 
+
+5. You need to create a DHCP server. The purpose of this is to assign IP addresses. If you don't do this your machines will not have an IP addresses assigned when booted up. 
+- First, open up your OS command prompt
+- Second, navigate to the directory your Virtrualbox lives / where the program lives in your file system. The command for this is: 'cd /Program Files/Oracle/VirtualBox'
+- Third, input the command: 'vboxmanage dhcpserver add -- network=<name of your network> --server-ip=10.38.1.1 --lower-ip=10.38.1..110 --upper-ip=10.38.1.120 --netmask=255.255.255.0 --enable (The purpose of this is to assign a range of Ips to your machines)
+
+6. Go back to your virtual box manager, right click your machines and click start, sign in with your credentials, now you need to see what ip address has been assigned to your box by opening up your terminal and typing in the command: 'ip address'. ( You should see an IP assigned to your box from the DHCP server you created in the step above )
+
+7. Next, you should see if your machine has access to the internet, For example, ping 8.8.8.8 (google). You should see 'ping: connect: Network is unreachable'. Also, you can try to ping your home network to see if your network is isolated. 
+
+8. The moment we've all been waiting for!!! IT'S TIME!!! Launch your vulnerable machine (mr.robot) and start your lab.
+
+TIP: When starting your lab use Nmap tool, helpful command 'sudo nmap -sS -T4 10.38.1.110-120'. This will start your lab off and show detailed information on how to attack it. Hint: Look at the open ports. 
+
+GOOD LUCK MOVING FORWARD AND HAVE FUN!!!!
